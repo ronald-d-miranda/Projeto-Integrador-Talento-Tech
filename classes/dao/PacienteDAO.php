@@ -1,8 +1,8 @@
 <?php
 
-require_once '../classes/DatabaseConfig.php';
-require_once '../classes/Paciente.php';
-require_once '../classes/dao/PessoaDAO.php';
+require_once(__DIR__ . '/../DatabaseConfig.php');
+require_once(__DIR__ . '/../Paciente.php');
+require_once(__DIR__ . '/PessoaDAO.php');
 
 class PacienteDAO {
     private $conn;
@@ -142,5 +142,50 @@ class PacienteDAO {
             return null;
         }
     }
+    public function findByPessoaId($pessoaId) {
+        $sql = "SELECT pa.*, p.* 
+                FROM tb_paciente pa 
+                JOIN tb_pessoa p ON pa.id_pessoa = p.id 
+                WHERE pa.id_pessoa = :id_pessoa";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id_pessoa', $pessoaId, PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch();
+    
+            if ($row) {
+                $pessoa = new Pessoa();
+                $pessoa->setId($row['id_pessoa'])
+                    ->setNome($row['nome'])
+                    ->setRg($row['rg'])
+                    ->setCpf($row['cpf'])
+                    ->setDataNasc($row['data_nasc'])
+                    ->setSexo($row['sexo'])
+                    ->setEmail($row['email'])
+                    ->setSenha($row['senha'])
+                    ->setTelefone($row['telefone']);
+    
+                $paciente = new Paciente();
+                $paciente->setId($row['id']) // ID da tabela tb_paciente
+                    ->setIdPessoa($row['id_pessoa'])
+                    ->setMetodoPagamento($row['metodo_pagamento'])
+                    ->setLogradouro($row['logradouro'])
+                    ->setNumero($row['numero'])
+                    ->setBairro($row['bairro'])
+                    ->setCidade($row['cidade'])
+                    ->setUF($row['uf'])
+                    ->setPessoa($pessoa);
+    
+                return $paciente;
+            }
+    
+            return null;
+    
+        } catch (PDOException $e) {
+            echo "Erro ao buscar paciente por ID da pessoa: " . $e->getMessage();
+            return null;
+        }
+    }    
 }
 ?>

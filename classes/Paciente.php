@@ -11,8 +11,16 @@ class Paciente extends Pessoa {
     private $UF;
     private $consultas = array();
     private $exames = array();
+    private $pessoa;
+    private $pessoa_id;
 
     // Getters
+    public function getIdPessoa() { 
+        return $this->id_pessoa;
+    }
+    public function getPessoa() { 
+        return $this->pessoa;
+    }
     public function getMetodoPagamento() {
         return $this->metodo_pagamento;
     }
@@ -46,6 +54,14 @@ class Paciente extends Pessoa {
     }
 
     // Setters
+    public function setIdPessoa($id_pessoa) { 
+        $this->id_pessoa = $id_pessoa;
+        return $this;    
+    }
+    public function setPessoa(Pessoa $pessoa) {
+        $this->pessoa = $pessoa;
+        return $this;
+    }
     public function setMetodoPagamento($metodo_pagamento) {
         $this->metodo_pagamento = $metodo_pagamento;
         return $this;

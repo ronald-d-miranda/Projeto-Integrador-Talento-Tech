@@ -1,7 +1,7 @@
 <?php
 
-require_once '../classes/DatabaseConfig.php';
-require_once '../classes/Pessoa.php';
+require_once(__DIR__ . '/../DatabaseConfig.php');
+require_once(__DIR__ . '/../Pessoa.php');
 
 class PessoaDAO {
     private $conn;
@@ -100,5 +100,36 @@ class PessoaDAO {
             return null;
         }
     }
+
+    public function findByEmail($email) {
+        $sql = "SELECT * FROM tb_pessoa WHERE email = :email";
+    
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+    
+            $row = $stmt->fetch();
+            if (!$row) {
+                return null;
+            }
+    
+            $pessoa = new Pessoa();
+            $pessoa->setId($row['id'])
+                  ->setNome($row['nome'])
+                  ->setRg($row['rg'])
+                  ->setCpf($row['cpf'])
+                  ->setDataNasc($row['data_nasc'])
+                  ->setSexo($row['sexo'])
+                  ->setEmail($row['email'])
+                  ->setSenha($row['senha'])
+                  ->setTelefone($row['telefone']);
+    
+            return $pessoa;
+        } catch (PDOException $e) {
+            echo "Erro ao buscar por email: " . $e->getMessage();
+            return null;
+        }
+    }    
 }
 ?>

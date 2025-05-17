@@ -1,14 +1,21 @@
 <?php
 
-require_once 'Pessoa.php';
-
 class Medico extends Pessoa {
+    private $id;
+    private $id_pessoa;
     private $registro_crf;
     private $matricula;
     private $especializacao;
     private $consultas = array();
+    private $pessoa;
 
     // Getters
+    public function getIdPessoa() { 
+        return $this->id_pessoa;
+    }
+    public function getPessoa() { 
+        return $this->pessoa;
+    }
     public function getRegistroCrf() {
         return $this->registro_crf;
     }
@@ -26,6 +33,14 @@ class Medico extends Pessoa {
     }
 
     // Setters
+    public function setIdPessoa($id_pessoa) { 
+        $this->id_pessoa = $id_pessoa;
+        return $this;    
+    }
+    public function setPessoa(Pessoa $pessoa) {
+        $this->pessoa = $pessoa;
+        return $this;
+    }
     public function setRegistroCrf($registro_crf) {
         $this->registro_crf = $registro_crf;
         return $this;

@@ -1,6 +1,7 @@
 <?php
 
 class Pessoa {
+    private $id;
     private $nome;
     private $rg;
     private $cpf;
@@ -9,8 +10,12 @@ class Pessoa {
     private $email;
     private $senha;
     private $telefone;
+    
+    // Getters    
+    public function getId() {
+        return $this->id;
+    }
 
-    // Getters
     public function getNome() {
         return $this->nome;
     }
@@ -44,6 +49,10 @@ class Pessoa {
     }
 
     // Setters
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
     public function setNome($nome) {
         $this->nome = $nome;
         return $this;

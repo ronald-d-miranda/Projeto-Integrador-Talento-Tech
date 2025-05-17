@@ -1,6 +1,6 @@
 <?php
 
-require_once '../classes/DatabaseConfig.php';
+require_once(__DIR__ . '/../DatabaseConfig.php');
 require_once '../classes/Consulta.php';
 require_once '../classes/dao/MedicoDAO.php';
 require_once '../classes/dao/PacienteDAO.php';

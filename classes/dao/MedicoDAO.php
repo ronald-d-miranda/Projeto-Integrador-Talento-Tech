@@ -1,8 +1,8 @@
 <?php
 
-require_once '../classes/DatabaseConfig.php';
-require_once '../classes/Medico.php';
-require_once '../classes/dao/PessoaDAO.php';
+require_once(__DIR__ . '/../DatabaseConfig.php');
+require_once(__DIR__ . '/../Medico.php');
+require_once(__DIR__ . '/PessoaDAO.php');
 
 class MedicoDAO {
     private $conn;
@@ -130,6 +130,49 @@ class MedicoDAO {
             return $medico;
         } catch (PDOException $e) {
             echo "Erro ao buscar médico: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function findByPessoaId($pessoaId) {
+        $sql = "SELECT m.*, p.* 
+                FROM tb_medico m 
+                JOIN tb_pessoa p ON m.id_pessoa = p.id 
+                WHERE m.id_pessoa = :id_pessoa";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id_pessoa', $pessoaId, PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch();
+
+            if ($row) {
+                $pessoa = new Pessoa();
+                $pessoa->setId($row['id_pessoa'])
+                    ->setNome($row['nome'])
+                    ->setRg($row['rg'])
+                    ->setCpf($row['cpf'])
+                    ->setDataNasc($row['data_nasc'])
+                    ->setSexo($row['sexo'])
+                    ->setEmail($row['email'])
+                    ->setSenha($row['senha'])
+                    ->setTelefone($row['telefone']);
+
+                $medico = new Medico();
+                $medico->setId($row['id'])  // ID da tabela tb_medico
+                    ->setIdPessoa($row['id_pessoa'])
+                    ->setRegistroCrf($row['registro_crf'])
+                    ->setMatricula($row['matricula'])
+                    ->setEspecializacao($row['especializacao'])
+                    ->setPessoa($pessoa);
+
+                return $medico;
+            }
+
+            return null;
+
+        } catch (PDOException $e) {
+            echo "Erro ao buscar médico por ID da pessoa: " . $e->getMessage();
             return null;
         }
     }

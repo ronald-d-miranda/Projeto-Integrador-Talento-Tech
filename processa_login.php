@@ -14,6 +14,7 @@ if ($pessoa && $pessoa->getSenha() === $senha) {
     $medicoDAO = new MedicoDAO();
     $medico = $medicoDAO->findByPessoaId($pessoa->getId());
     if ($medico) {
+        $_SESSION['nome'] = $pessoa->getNome();
         $_SESSION['tipo'] = 'medico';
         $_SESSION['id'] = $medico->getId();
         header('Location: medico_dashboard.php');
@@ -23,6 +24,7 @@ if ($pessoa && $pessoa->getSenha() === $senha) {
     $pacienteDAO = new PacienteDAO();
     $paciente = $pacienteDAO->findByPessoaId($pessoa->getId());
     if ($paciente) {
+        $_SESSION['nome'] = $pessoa->getNome();
         $_SESSION['tipo'] = 'paciente';
         $_SESSION['id'] = $paciente->getId();
         header('Location: paciente_dashboard.php');

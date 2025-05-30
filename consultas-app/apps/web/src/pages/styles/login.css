@@ -1,0 +1,40 @@
+tela de login: /* login.css */
+#tela-login {
+  background-color: #e9ecef;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+#tela-login h2 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+#tela-login input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#tela-login button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#tela-login button:hover {
+  background-color: #0056b3;
+}

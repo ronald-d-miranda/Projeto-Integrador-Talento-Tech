@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clínica Vida Saudável</title>
+  <link rel="stylesheet" href="styles/hub.css">
+</head>
+<body>
+  <div id="conteudo-site" style="color: black; padding: 20px; max-width: 600px;">
+    <h1>Clínica Vida Saudável</h1>
+    <p>Seja bem-vindo, <span id="usuario-nome"></span>!</p>
+
+    <header>
+      <div class="container">
+        <h1>Clínica Vida Saudável</h1>
+        <nav>
+          <a href="#servicos">Serviços</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="banner">
+      <div class="container">
+        <img src="amigosm medicos.png" alt="Clínica moderna" class="banner-img">
+        <h2>Cuidamos da sua saúde com excelência</h2>
+        <p>Bem-vindo à Clínica Vida Saudável. Aqui, sua saúde é prioridade!</p>
+      </div>
+    </section>
+
+    <hr class="linha">
+
+    <section id="servicos" class="servicos">
+      <div class="container">
+        <h2>Nossos Serviços</h2>
+        <ul>
+          <li>Atendimento Clínico Geral</li>
+          <li>Pediatria</li>
+          <li>Ginecologia e Obstetrícia</li>
+          <li>Exames Laboratoriais</li>
+          <li>Psicologia</li>
+          <li>Consultoria Online</li>
+        </ul>
+        <div class="botao-agendamento">
+          <a href="#agendamento" class="btn-agendar">Agendar Consulta</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="linha">
+
+    <section id="sobre" class="sobre">
+      <div class="container">
+        <h2>Sobre a Clínica</h2>
+        <img src="mulherpedriatra.png" alt="Equipe médica" class="sobre-img">
+        <p>
+          Fundada com o propósito de oferecer atendimento médico de qualidade e humanizado, a Clínica Vida Saudável atua há mais de 10 anos promovendo saúde e bem-estar.
+          Contamos com uma equipe especializada e estrutura moderna para garantir o melhor cuidado aos nossos pacientes.
+        </p>
+      </div>
+    </section>
+
+    <hr class="linha">
+
+    <section id="equipe" class="equipe">
+      <div class="container">
+        <h2>Nossa Equipe</h2>
+        <div class="cards" style="display:flex; gap: 20px;">
+          <div class="card-medico" style="flex:1;">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=60" alt="Dra. Ana" style="width:100%; border-radius: 8px;">
+            <h3>Dra. Ana Beatriz</h3>
+            <p>Clínica Geral</p>
+          </div>
+          <div class="card-medico" style="flex:1;">
+            <img src="joaoricardo.png" alt="Dr. João" style="width:100%; border-radius: 8px;">
+            <h3>Dr. João Ricardo</h3>
+            <p>Pediatria</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Clínica Vida Saudável. Todos os direitos reservados.</p>
+      </div>
+
+      <hr class="linha">
+
+      <section id="agendamento" class="agendamento">
+        <div class="container">
+          <h2>Agende uma Consulta</h2>
+          <form class="form-agendamento">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu e-mail" required>
+            <select required>
+              <option value="">Selecione a especialidade</option>
+              <option value="clinica-geral">Clínica Geral</option>
+              <option value="pediatria">Pediatria</option>
+              <option value="dermatologia">Dermatologia</option>
+            </select>
+            <textarea placeholder="Mensagem ou sintomas..." rows="4"></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </footer>
+  </div>
+
+  <script>
+    const nome = localStorage.getItem('usuarioNome') || 'Usuário';
+    document.getElementById('usuario-nome').textContent = nome;
+  </script>
+</body>
+</html>

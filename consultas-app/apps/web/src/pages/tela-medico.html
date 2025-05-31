@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel do Paciente</title>
+  <link rel="stylesheet" href="styles/tela-medico.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Olá, João 👋</h1>
+      <p>Bem-vindo ao seu painel do paciente. Aqui você gerencia seus exames e consultas com facilidade.</p>
+    </header>
+
+    <section class="agendados">
+      <h2>Exames Agendados <a href="#">+ Inserir novo</a></h2>
+      <div class="exames">
+        <div class="card">
+          <h3>Hemograma Completo</h3>
+          <p><strong>Data:</strong> 05/06/2025 às 09:00</p>
+          <p><strong>Local:</strong> Clínica Saúde Total</p>
+        </div>
+        <div class="card">
+          <h3>Ressonância Magnética</h3>
+          <p><strong>Data:</strong> 12/06/2025 às 14:30</p>
+          <p><strong>Local:</strong> Hospital São Lucas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="acesso-rapido">
+      <h2>Acesso Rápido</h2>
+      <div class="botoes">
+        <button class="btn azul" onclick="abrirModal('modalInserir')">📝 Inserir Exame</button>
+        <button class="btn azul" onclick="abrirModal('modalHistorico')">📁 Histórico de Exames</button>
+        <button class="btn azul" onclick="abrirModal('modalFalar')">💬 Falar com Doutores</button>
+        <button class="btn vermelho">📕 Sair</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modais -->
+  <div class="modal" id="modalInserir">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal('modalInserir')">&times;</span>
+      <h3>Inserir Exame</h3>
+      <p>Aqui você poderá cadastrar um novo exame no sistema.</p>
+      <!-- Formulário básico -->
+      <input type="text" placeholder="Nome do exame" />
+      <input type="datetime-local" />
+      <input type="text" placeholder="Local" />
+      <button class="btn azul">Salvar</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalHistorico">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal('modalHistorico')">&times;</span>
+      <h3>Histórico de Exames</h3>
+      <p>Você poderá visualizar todos os exames realizados anteriormente.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modalFalar">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal('modalFalar')">&times;</span>
+      <h3>Falar com Doutores</h3>
+      <p>Essa função permite iniciar um chat com um profissional de saúde.</p>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function fecharModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    window.onclick = function(event) {
+      const modais = document.querySelectorAll('.modal');
+      modais.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

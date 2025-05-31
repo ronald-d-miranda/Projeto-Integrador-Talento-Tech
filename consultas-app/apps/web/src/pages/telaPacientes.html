@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hub do Paciente</title>
+  <link rel="stylesheet" href="styles/stylePACIENTE.css" />
+  <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="img/logo.png" alt="Logo Saúde+" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Agendar</a></li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <header class="header">
+      <h1>Olá, João 👋</h1>
+      <p>Bem-vindo ao seu painel do paciente. Aqui você gerencia seus exames e consultas com facilidade.</p>
+    </header>
+
+    <section class="agendados">
+      <div class="section-header">
+        <h2>Exames Agendados</h2>
+        <a href="#" class="link-agendar">+ Agendar novo</a>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Hemograma Completo</h3>
+          <p><strong>Data:</strong> 05/06/2025 às 09:00</p>
+          <p><strong>Local:</strong> Clínica Saúde Total</p>
+        </div>
+
+        <div class="card">
+          <h3>Ressonância Magnética</h3>
+          <p><strong>Data:</strong> 12/06/2025 às 14:30</p>
+          <p><strong>Local:</strong> Hospital São Lucas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="acoes">
+      <h2 class="tit">Acesso Rápido</h2>
+      <div class="grid">
+        <a href="#" class="btn">Agendar Exame</a>
+        <a href="#" class="btn" id="abrirHistorico">🗂 Histórico de Exames</a>
+        <a href="#" class="btn" id="abrirMensagens">💬 Falar com Doutores</a>
+        <a href="#" class="btn sair">🚪 Sair</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Histórico -->
+  <div class="modal" id="modalHistorico">
+    <div class="modal-content">
+      <span class="close" data-close="modalHistorico">&times;</span>
+      <h2>Histórico de Exames</h2>
+      <p>Simulação de exames anteriores realizados...</p>
+    </div>
+  </div>
+
+  <!-- Modal: Mensagens -->
+  <div class="modal" id="modalMensagens">
+    <div class="modal-content">
+      <span class="close" data-close="modalMensagens">&times;</span>
+      <h2>Mensagens com Doutores</h2>
+      <p>Simulação de chat com os profissionais de saúde...</p>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Saúde Mais. Todos os direitos reservados.</p>
+      <p>Contato: suporte@saudemais.com</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+<div class="modal">
+  <div class="modal-content">
+    <h2 class="modal-title">Título do Modal</h2>
+    <p class="modal-text">Conteúdo do modal.</p>
+    <button class="modal-close">Fechar</button>
+  </div>
+</div>
+
+<script src="scripts/scriptPACIENTE.js"></script>
+
+</body>
+</html>

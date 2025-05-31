@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hub do Médico</title>
+  <link rel="stylesheet" href="styles/styleMEDICO.css" />
+  <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="img/logo.png" alt="Logo Saúde+" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Consultas</a></li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <header class="header">
+      <h1>Olá, Dr. Rodrigo </h1>
+      <p>Bem-vinda ao seu painel médico. Aqui você acompanha consultas, prontuários e mensagens de pacientes.</p>
+    </header>
+
+    <section class="agendados">
+      <div class="section-header">
+        <h2>Consultas do Dia</h2>
+        <a href="#" class="link-agendar">+ Nova Consulta</a>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>João da Silva</h3>
+          <p><strong>Horário:</strong> 08:30</p>
+          <p><strong>Motivo:</strong> Acompanhamento de pressão</p>
+        </div>
+
+        <div class="card">
+          <h3>Maria Oliveira</h3>
+          <p><strong>Horário:</strong> 10:15</p>
+          <p><strong>Motivo:</strong> Retorno de exame</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="acoes">
+      <h2 class="tit">Acesso Rápido</h2>
+      <div class="grid">
+        <a href="#" class="btn">+ Agendar Consulta</a>
+        <a href="#" class="btn" id="abrirHistorico">🗂 Prontuários</a>
+        <a href="#" class="btn" id="abrirMensagens">💬 Mensagens de Pacientes</a>
+        <a href="#" class="btn sair">🚪 Sair</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Prontuários -->
+  <div class="modal" id="modalHistorico">
+    <div class="modal-content">
+      <span class="close" data-close="modalHistorico">&times;</span>
+      <h2>Prontuários</h2>
+      <p>Simulação de acesso ao histórico médico dos pacientes...</p>
+    </div>
+  </div>
+
+  <!-- Modal: Mensagens -->
+  <div class="modal" id="modalMensagens">
+    <div class="modal-content">
+      <span class="close" data-close="modalMensagens">&times;</span>
+      <h2>Mensagens de Pacientes</h2>
+      <p>Simulação de comunicação com os pacientes...</p>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Saúde Mais. Todos os direitos reservados.</p>
+      <p>Contato: suporte@saudemais.com</p>
+    </div>
+  </footer>
+
+  <!-- Modal base -->
+  <div class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title">Título do Modal</h2>
+      <p class="modal-text">Conteúdo do modal.</p>
+      <button class="modal-close">Fechar</button>
+    </div>
+  </div>
+
+  <script src="scripts/scriptMEDICO.js"></script>
+
+</body>
+</html>
